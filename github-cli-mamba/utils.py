@@ -3,6 +3,7 @@ import json
 import sys
 from typing import List
 
+import jmespath
 from options import OutputOption
 from rich import print, print_json
 from rich.console import Console
@@ -28,3 +29,19 @@ def print_beautify(data: List[dict], output_option: OutputOption):
             table.add_row(*[str(data.index(row) + 1)] + [str(v) for v in row.values()])
         console = Console()
         console.print(table)
+
+
+def sort_by_field(data: List[dict], field_list: List[str], reverse: bool = False):
+    field_list.reverse()
+
+    expr = ""
+    for field in field_list:
+        if expr:
+            expr = f"sort_by(@, &{field})"
+        else:
+            expr = f"sort_by({expr}, &{field})"
+
+    if reverse:
+        expr = f"{expr}.reverse(@)"
+
+    return jmespath.search(expr, data)
