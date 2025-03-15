@@ -1,6 +1,13 @@
+import os
+
 import typer
+from dotenv import load_dotenv
 from github import get_all_user_repositories
 from rich import print
+
+if os.path.exists(".env"):
+    load_dotenv()
+
 
 app = typer.Typer()
 repo_app = typer.Typer()
