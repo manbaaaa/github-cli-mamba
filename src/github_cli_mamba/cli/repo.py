@@ -1,8 +1,9 @@
 import jmespath
 import typer
-from github import GithubAPI
-from options import OutputOption
-from utils import print_beautify, sort_by_field
+
+from github_cli_mamba.github import GithubAPI
+from github_cli_mamba.options import OutputOption
+from github_cli_mamba.utils import print_beautify, sort_by_field
 
 repo_app = typer.Typer()
 

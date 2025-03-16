@@ -1,9 +1,10 @@
 import os
 
 import typer
-from cli.repo import repo_app
-from cli.user import user_app
 from dotenv import load_dotenv
+
+from github_cli_mamba.cli.repo import repo_app
+from github_cli_mamba.cli.user import user_app
 
 if os.path.exists(".env"):
     load_dotenv()

@@ -1,7 +1,8 @@
 import typer
-from github import GithubAPI
-from options import OutputOption
-from utils import print_beautify
+
+from github_cli_mamba.github import GithubAPI
+from github_cli_mamba.options import OutputOption
+from github_cli_mamba.utils import print_beautify
 
 user_app = typer.Typer()
 

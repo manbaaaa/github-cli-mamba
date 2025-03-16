@@ -4,10 +4,11 @@ import sys
 from typing import List
 
 import jmespath
-from options import OutputOption
 from rich import print, print_json
 from rich.console import Console
 from rich.table import Table
+
+from github_cli_mamba.options import OutputOption
 
 
 def print_beautify(data: List[dict], output_option: OutputOption):
